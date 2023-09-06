@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Maury Courtland's Previous Work</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- stylesheets css -->
+    <link rel="icon" href="images/smiley-face-favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <link rel="stylesheet" href="css/nivo-lightbox.css">
+    <link rel="stylesheet" href="css/nivo_themes/default/default.css">
+
+    <link rel="stylesheet" href="css/hover-min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50" onload="resizeAll()"
+    onresize="resizeAll()">
+
+    <!-- Preloader section -->
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-pulse"></div>
+    </div>
+
+
+    <!-- Navigation section -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container" id="navbar">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Maury Courtland</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html" class="smoothScroll">Home</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- professional section -->
+    <section id="professional" class="parallax-section">
+        <div class="container">
+            <div class="row" id="proWhat">
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Past Projects</h2>
+                        <h4>(Doctoral Research et al.)</h4>
+                    </div>
+                </div>
+                <div id="phdProjects">
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="professional-thumb" id="pastProBox1">
+                            <div class="professional-icon"
+                                onclick="showDiv('#moreNLP','#NLPButton','#pastProBox1',false)">
+                                <span><img alt="natural language processing icon" src="images/NLP2.png" height="40"
+                                        width="120"></span>
+                            </div>
+                            <div id="pastProText1" class="snippet">
+                                <h3 id="header1">Natural Language Processing</h3>
+                                <p id="abstract1">I build models of the language people consume to understand how
+                                    language exposure influences people's preferred language varieties.</p>
+                                <input class="moreButton" type="button" id="NLPButton" name="showMore"
+                                    value="read more..."
+                                    onclick="showDiv('#moreNLP','#NLPButton','#pastProBox1',true)" />
+                            </div>
+                            <div id="moreNLP" class="moreText">
+                                <p>Using people's reports of what popular media they consume (TV, Movies, etc.), I
+                                    examine how the language people expose themselves to affects the language they are
+                                    comfortable using. To do this, I collect a language sample comprising all the media
+                                    people report consuming. I then use language models (statistical and machine
+                                    learning, all in Python) to capture regularities present in these samples. With
+                                    these models, I evaluate possible language material for predicted bias, in order to
+                                    choose the best items for people. This helps to ensure people from diverse language
+                                    backgrounds are comfortable with the language we use.</p>
+                                <!-- I am currently modeling clusters of people who consume similar media, but with more processing time and reported media from people, I could model each person individually.  -->
+                                <p>I also previously worked on a project evaluating the effectiveness of vector
+                                    representations of words (word embeddings - Word2Vec) in different languages. Using
+                                    the same classifier for a sentiment analysis task, my team used features generated
+                                    from word embeddings of different languages. These languages differed in
+                                    morphological complexity (i.e. amount of information per word), which influenced the
+                                    effectiveness of the word embeddings.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="professional-thumb" id="pastProBox2">
+                            <div class="professional-icon"
+                                onclick="showDiv('#moreDSP','#DSPButton','#pastProBox2',false)">
+                                <span><img alt="speech processing icon" src="images/DSP2.png" height="40"
+                                        width="120"></span>
+                            </div>
+                            <!-- <a href=><h3><u class="dotted">Linguistics</u></h3></a> -->
+                            <div id="pastProText2" class="snippet">
+                                <h3 id="header2">Speech and Digital Signal Processing</h3>
+                                <p id="abstract2">I create audio files that combine speech and specially-formulated
+                                    noise for hearing experiments (see below).</p>
+                                <input class="moreButton" type="button" id="DSPButton" name="showMore"
+                                    value="read more..."
+                                    onclick="showDiv('#moreDSP','#DSPButton','#pastProBox2',true)" />
+                            </div>
+                            <div id="moreDSP" class="moreText">
+                                <p>I use MATLAB to create noise with the same frequency (spectral) properties as speech.
+                                    For this, I generate filters (fit with high-order LPC) to shape white noise. I then
+                                    process this new noise to have special temporal (envelope) characteristics. By
+                                    combining this noise with processed speech samples, I generate auditory stimuli with
+                                    specific acoustic properties.</p>
+                                <p>I then used functional MRI to image people's brains while they listened to these
+                                    stimuli. These MRI signals represent brain activity over time and require signal
+                                    processing to denoise, identify activation trends and relationships, and examine
+                                    whether (and where) activation is caused by the stimuli.</p>
+                                <p>I have also previously worked on two additional projects: developing a negotiating
+                                    dialogue agent using affective ASR and affective TTS (the ability to recognize and
+                                    simulate emotion), and a Computational Auditory Scene Analysis system to separate
+                                    speech from background noise using Deep Learning.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                        <div class="professional-thumb" id="pastProBox3">
+                            <div class="professional-icon"
+                                onclick="showDiv('#moreProgramming','#programmingButton','#pastProBox3',false)">
+                                <span><img alt="miscellaneous coding projects icon" src="images/Misc.png" height="40"
+                                        width="120"></span>
+                            </div>
+                            <div id="pastProText3" class="snippet">
+                                <h3 id="header3">Miscellaneous Programming Projects</h3>
+                                <p id="abstract3">In addition to my research, I also program for numerous other
+                                    projects.</p>
+                                <input class="moreButton" type="button" id="programmingButton" name="showMore"
+                                    value="read more..."
+                                    onclick="showDiv('#moreProgramming','#programmingButton','#pastProBox3',true)" />
+                            </div>
+                            <div id="moreProgramming" class="moreText">
+                                <p>I use statistical software (Stata, as well as Python and MATLAB) to clean, transform,
+                                    and analyze my experimental data. My ability to make scientific claims directly
+                                    depends on my ability to perform these inferential statistics.</p>
+                                <p>Additionally, when I was a consultant, I created an application to develop
+                                    linguistically optimal speech prompts for a speech technology company.</p>
+                                <p>Lastly, I program for personal projects. From computational pun finders to predicting
+                                    my preferred web content, I like when computers save people (me) time. I also built
+                                    the website you're currently enjoying (minus style templating).</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="row" id="proWhy">
+                        <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                                <h3 style="margin: 40px 0 0">Why Did I Do It?</h3>
+                                <h4>(For Science!)</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="professional-thumb" id="pastProBox4">
+                                <div class="professional-icon"
+                                    onclick="showDiv('#moreFairness','#fairButton','#pastProBox4',false)">
+                                    <span><img alt="testing fairness icon" src="images/TestFairness6.png" height="40"
+                                            width="120"></span>
+                                </div>
+                                <div id="pastProText4" class="snippet">
+                                    <h3 id="header4">Language Bias in Cognitive Testing</h3>
+                                    <p id="abstract4">I examine how your language variety affects your performance on
+                                        clinical tests.</p>
+                                    <input class="moreButton" type="button" id="fairButton" name="showMore"
+                                        value="read more..."
+                                        onclick="showDiv('#moreFairness','#fairButton','#pastProBox4',true)" />
+                                </div>
+                                <div id="moreFairness" class="moreText">
+                                    <p>Clinical tests use standardized language in an effort to make tests fair. Making
+                                        the
+                                        language the same, however, does not account for the fact that people's language
+                                        experiences are different. This diversity in language backgrounds leads to
+                                        differences in test difficulty exactly because the language stays the same.</p>
+                                    <p>My team recently found that people's performance is significantly different on
+                                        these
+                                        tests based on which popular media they consume. We found this variability to be
+                                        unrelated to traditionally considered dimensions of variability (race, class,
+                                        etc.).
+                                        This may indicate that people's media exposure can influence the language they
+                                        feel
+                                        comfortable with.</p>
+                                    <p>When we trained neural language models on the language the media sources
+                                        contained,
+                                        the models significantly correlated with people's performance. This implies that
+                                        there are linguistic properties of media that can predict the test performance
+                                        of
+                                        people who consume it.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="professional-thumb" id="pastProBox5">
+                                <div class="professional-icon"
+                                    onclick="showDiv('#moreSPiN','#SPiNButton','#pastProBox5',false)">
+                                    <span><img <img alt="brain-ear picture" src="images/SPiN.png" height="40"
+                                            width="120"></span>
+                                </div>
+                                <div id="pastProText5" class="snippet">
+                                    <h3 id="header5">Speech Perception in Noise</h3>
+                                    <p id="abstract5">I study speech perception in adverse listening conditions (like
+                                        those
+                                        in our noisy everyday lives).</p>
+                                    <input class="moreButton" type="button" id="SPiNButton" name="showMore"
+                                        value="read more..."
+                                        onclick="showDiv('#moreSPiN','#SPiNButton','#pastProBox5',true)" />
+                                </div>
+                                <div id="moreSPiN" class="moreText">
+                                    <p>While noise is often sporadic, many noises have recurring well-behaved structure
+                                        (like a train engine or ticking clock). I study the ability of the auditory
+                                        system
+                                        to learn this regular temporal structure. Being able to identify this structure
+                                        can
+                                        allow people to predict and therefore overcome it, allowing us to hear signals
+                                        amidst the noise. This incredible process happens constantly, but is only
+                                        noticed in
+                                        extremely challenging situations such as loud bars or concerts. To study this, I
+                                        mostly use behavioral hearing tests, but have also used functional MRI
+                                        neuroimaging.
+                                    </p>
+                                    <p>My initial findings showed that people were less hindered by the noise when it
+                                        was
+                                        regular, rather than sporadic. Our follow up experiments showed that this
+                                        process is
+                                        not as straight-forward as we anticipated. It seems that certain people can gain
+                                        a
+                                        benefit from the repetition, but others are actually hampered by it. We are
+                                        currently investigating what teases these two populations apart. So far, we have
+                                        ruled out general cognitive ability (working memory, executive function) and
+                                        musical
+                                        experience.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="professional-thumb" id="pastProBox6">
+                                <div class="professional-icon"
+                                    onclick="showDiv('#morePast','#pastButton','#pastProBox6',false)">
+                                    <span><img alt="past projects icon" src="images/PastProjects.png" height="40"
+                                            width="120"></span>
+                                </div>
+                                <div id="pastProText6" class="snippet">
+                                    <h3 id="header6">Past Projects</h3>
+                                    <p id="abstract6">I began my career studying the articulatory and acoustic
+                                        properties of
+                                        speech production.</p>
+                                    <input class="moreButton" type="button" id="pastButton" name="showMore"
+                                        value="read more..."
+                                        onclick="showDiv('#morePast','#pastButton','#pastProBox6',true)" />
+                                </div>
+                                <div id="morePast" class="moreText">
+                                    <p>In my undergraduate work, I used acoustic phonetic analysis to document dying
+                                        languages. I built online "talking dictionaries" that contained sound recordings
+                                        of
+                                        words produced by the last native speakers of these languages. To create
+                                        dictionary
+                                        entries, I used phonetic analysis (in praat) to transcribe how the words were
+                                        pronounced. My transcriptions, while useful, were no substitute for the nuanced
+                                        speech patterns of actual native speakers, so the dictionaries include both. I
+                                        then
+                                        wrote my undergraduate thesis on a new combination of sounds present in one of
+                                        these
+                                        languages, Bugun.</p>
+                                    <p>In the early years of my PhD, I studied the post-operative speech outcome of
+                                        tongue
+                                        cancer patients. To do this, I used real-time Magnetic Resonance Imaging of
+                                        patients' vocal tracts while speaking, before and after surgery. After
+                                        performing
+                                        image processing on the videos of patients' speech, I modeled their articulatory
+                                        behavior to draw meaningful inferences on whether (and how) their speech motor
+                                        behavior changed post-operatively.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+
+				<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.2s">
+					<h3>Current Professional Status</h3>
+					<p>I am currently a Manager of Machine Learning Engineering at <a href="http://www.doma.com">Doma</a>
+						located in the Research Triangle, North Carolina.</p>
+				</div>
+
+                <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.3s">
+                    <h3>Contact Details</h3>
+                    <p>To contact me about employment opportunities, inquire about future work availability, or ask
+                        general technology or personal questions, feel free to contact me at:
+                        <script> divider = ('<a h')
+                            whistle = ('ref')
+                            link = ('=\'' + 'ma&#1' + '05&' + '#10' + '8to:')
+                            stuff = ('&#' + '109;a' + '&' + '#11' + '7r')
+                            stuff2 = ('y.' + 'co' + '&#' + '1' + '17rt' + '&#1' + '08;') /* Please don't spam me */
+                            school = ('and' + '&#6' + '4;gma' + '&#105' + ';')
+                            end = ('l&#4' + '6;co' + '&#1' + '09;')
+                            document.write(divider + whistle + link + stuff + stuff2 + school + end + '\'>' + stuff + stuff2 + school + end + '</' + 'a>')</script>
+                    </p>
+                    <p>
+                        For speaking engagements, collaboration requests, publication correspondence, and academic or
+                        research inquiries, please contact me at:
+                        <script> divider = ('<a hre')
+                            link = ('f=\'' + 'ma&#1' + '05&' + '#10' + '8to:')
+                            stuff = ('&#' + '109;a' + '&' + '#11' + '7r')
+                            stuff2 = ('y.' + 'co' + '&#' + '1' + '17rt' + '&#1' + '08;') /* Please don't spam me */
+                            school = ('and.' + '&#1' + '12;h&#' + '100;' + '&#6' + '4;gma' + '&#105' + ';')
+                            end = ('l&#4' + '6;co' + '&#1' + '09;')
+                            document.write(divider + link + stuff + stuff2 + school + end + '\'>' + stuff + stuff2 + school + end + '</' + 'a>')</script>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Copyright section -->
+    <section id="copyright">
+        <div class="container">
+            <div class="row">
+                <p>Copyright © 2018-present Maury Courtland - Groundwork by: <a class="designed-by"
+                        href="https://plus.google.com/+Tooplate/" target="_blank">Tooplate</a></p>
+                <!-- <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- javscript js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.magnific-popup.min.js"></script>
+
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.backstretch.min.js"></script>
+
+    <script src="js/isotope.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="js/nivo-lightbox.min.js"></script>
+
+    <script src="js/jquery.flexslider-min.js"></script>
+
+    <script src="js/jquery.parallax.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
