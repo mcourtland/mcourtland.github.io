@@ -263,9 +263,5 @@ function alignSnippets(abstracts, boxes){
 
 /* Function for realigning everything on window resize */
 function resizeAll() {
-  alignSnippets(['#abstract1','#abstract2','#abstract3'],['#pastProText1','#pastProText2','#pastProText3']);
-  alignSnippets(['#abstract4','#abstract5','#abstract6'],['#pastProText4','#pastProText5','#pastProText6']);
-  professionalAlign(['#pastProBox1','#pastProBox2','#pastProBox3'],['#pastProText1','#pastProText2','#pastProText3'],['#NLPButton','#DSPButton','#programmingButton']);
-  professionalAlign(['#pastProBox4','#pastProBox5','#pastProBox6'],['#pastProText4','#pastProText5','#pastProText6'],['#fairButton','#SPiNButton','#pastButton']);
   CVAlign(['#resumeBox','#recentlyBox','#soonBox'],['#resumeText','#recentlyText','#soonText'],['#CVHeader','#happeningsHeader']);
 }
