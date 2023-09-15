@@ -216,10 +216,10 @@ function CVAlign(boxes,texts,headers) {
 }
 
 /* Align professional box heights and button positions */
-function professionalAlign(boxes,snippets,texts,buttons) {
+function professionalAlign(boxes,texts,buttons) {
   var bottomPad = 10;
-  var collapsedHeight = snippets.map(function(snippet){
-    return $(snippet).height();
+  var collapsedHeight = texts.map(function(text){
+    return $(text).parent().children('div.snippet').height();
   });
   var maxCollapsedHeight = Math.max(...collapsedHeight);
   var bottomOffset = bottomPad + 4 * $(buttons[0]).height();
@@ -282,6 +282,6 @@ function resizeAll() {
 function resizePastAll() {
   alignSnippets(['#abstract1', '#abstract2', '#abstract3'], ['#pastProText1', '#pastProText2', '#pastProText3']);
   alignSnippets(['#abstract4', '#abstract5', '#abstract6'], ['#pastProText4', '#pastProText5', '#pastProText6']);
-  professionalAlign(['#pastProBox1', '#pastProBox2', '#pastProBox3'], ['#pastProText1', '#pastProText2', '#pastProText3'], ["#moreNLP", "#moreDSP", "#moreProgramming"], ['#NLPButton', '#DSPButton', '#programmingButton']);
-  professionalAlign(['#pastProBox4', '#pastProBox5', '#pastProBox6'], ['#pastProText4', '#pastProText5', '#pastProText6'], ["#moreFairness", "#moreSPiN", "#morePast"], ['#fairButton', '#SPiNButton', '#pastButton']);
+  professionalAlign(['#pastProBox1', '#pastProBox2', '#pastProBox3'], ["#moreNLP", "#moreDSP", "#moreProgramming"], ['#NLPButton', '#DSPButton', '#programmingButton']);
+  professionalAlign(['#pastProBox4', '#pastProBox5', '#pastProBox6'], ["#moreFairness", "#moreSPiN", "#morePast"], ['#fairButton', '#SPiNButton', '#pastButton']);
 }
