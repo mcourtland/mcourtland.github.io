@@ -159,23 +159,25 @@ $(document).ready(function() {
 
 /* Show more text */
 function showDiv(TextID,ButtonID,BoxID,scrollBool) {
-    if ($(TextID).css("display") == "block") {
+
+  if ($(TextID).css("display") == "block") {
+
         $(TextID).css("display","none");
         $(ButtonID).val("read more...");
-        resizeAll();
+        resizePastAll();
         // console.log("shrunk!");
         if (scrollBool) {
           $('html,body').animate({
             scrollTop: $(BoxID).parent().offset().top - $('#navbar').height()});
+          }
         }
-    }
-    else if ($(TextID).css("display") == "none") {
-        $(TextID).css("display","block");
-        $(ButtonID).val("show less...");
+        else if ($(TextID).css("display") == "none") {
+
+          $(TextID).css("display","block");
+          $(ButtonID).val("show less...");
+          resizePastAll();
         // console.log("expanded!");
-        $(BoxID).css("height","auto");
-        $(ButtonID).css("bottom", "0px");
-    }
+        }
 }
 
 /* Align CV gray boxes */
@@ -214,19 +216,30 @@ function CVAlign(boxes,texts,headers) {
 }
 
 /* Align professional box heights and button positions */
-function professionalAlign(boxes,texts,buttons) {
+function professionalAlign(boxes,snippets,texts,buttons) {
   var bottomPad = 10;
-  var heights = texts.map(function(text){
-    return $(text).height();
+  var collapsedHeight = snippets.map(function(snippet){
+    return $(snippet).height();
   });
-  var max = Math.max(...heights) + bottomPad + 4*$(buttons[0]).height();
+  var maxCollapsedHeight = Math.max(...collapsedHeight);
+  var bottomOffset = bottomPad + 4 * $(buttons[0]).height();
+  var expandedHeight = texts.map(function(text){
+    if ($(text).css("display") == "block") {
+      return $(text).height() + $(text).parent().children('div.snippet').height();
+    }
+    else { return 0; }
+  });
+  var maxExpandedHeight = Math.max(...expandedHeight);
   for (var b = 0; b < boxes.length; b++) {
-    if ($(boxes[b]).children('div.moreText').css("display") == "none") { // if it's not expanded
-    var leftAlign = $(boxes[b]).outerWidth()/2 - $(buttons[b]).outerWidth()/2;
-    $(boxes[b]).height(max);
-    $(buttons[b]).css("position","absolute");
-    $(buttons[b]).css("bottom", 2*bottomPad + "px");
+    var leftAlign = $(boxes[b]).outerWidth() / 2 - $(buttons[b]).outerWidth() / 2;
     $(buttons[b]).css("left", leftAlign);
+    if ($(boxes[b]).children('div.moreText').css("display") == "none") { // if it's not expanded
+      $(buttons[b]).css("bottom", 2 * bottomPad + "px");
+      $(boxes[b]).height(maxCollapsedHeight + bottomOffset);
+    }
+    else if ($(boxes[b]).children('div.moreText').css("display") == "block") { // if it's expanded
+      $(buttons[b]).css("bottom", "0px");
+      $(boxes[b]).height(maxExpandedHeight + bottomOffset);
     }
   }
 }
@@ -269,6 +282,6 @@ function resizeAll() {
 function resizePastAll() {
   alignSnippets(['#abstract1', '#abstract2', '#abstract3'], ['#pastProText1', '#pastProText2', '#pastProText3']);
   alignSnippets(['#abstract4', '#abstract5', '#abstract6'], ['#pastProText4', '#pastProText5', '#pastProText6']);
-  professionalAlign(['#pastProBox1', '#pastProBox2', '#pastProBox3'], ['#pastProText1', '#pastProText2', '#pastProText3'], ['#NLPButton', '#DSPButton', '#programmingButton']);
-  professionalAlign(['#pastProBox4', '#pastProBox5', '#pastProBox6'], ['#pastProText4', '#pastProText5', '#pastProText6'], ['#fairButton', '#SPiNButton', '#pastButton']);
+  professionalAlign(['#pastProBox1', '#pastProBox2', '#pastProBox3'], ['#pastProText1', '#pastProText2', '#pastProText3'], ["#moreNLP", "#moreDSP", "#moreProgramming"], ['#NLPButton', '#DSPButton', '#programmingButton']);
+  professionalAlign(['#pastProBox4', '#pastProBox5', '#pastProBox6'], ['#pastProText4', '#pastProText5', '#pastProText6'], ["#moreFairness", "#moreSPiN", "#morePast"], ['#fairButton', '#SPiNButton', '#pastButton']);
 }

@@ -321,14 +321,14 @@ a:focus {
 	position: relative;
 } */
 
-/* #professional .moreButton{
+#professional .moreButton{
 	position: absolute;
-	bottom: 10px;
+	/* bottom: 10px;
 	right: 20px;
 	vertical-align: -20px;
 	display: table-cell;
-	vertical-align: bottom;
-} */
+	vertical-align: bottom; */
+}
 
 
 /* CVs section  */
