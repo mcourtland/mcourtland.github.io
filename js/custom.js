@@ -18,62 +18,6 @@ $(document).ready(function() {
     });
 });
 
-
-/* Istope Portfolio
------------------------------------------------*/
-jQuery(document).ready(function($){
-
-  if ( $('.iso-box-wrapper').length > 0 ) {
-
-      var $container  = $('.iso-box-wrapper'),
-        $imgs     = $('.iso-box img');
-
-      $container.imagesLoaded(function () {
-
-        $container.isotope({
-        layoutMode: 'fitRows',
-        itemSelector: '.iso-box'
-        });
-
-        $imgs.load(function(){
-          $container.isotope('reLayout');
-        });
-
-      });
-
-      //filter items on button click
-
-      $('.filter-wrapper li a').click(function(){
-
-          var $this = $(this), filterValue = $this.attr('data-filter');
-
-      $container.isotope({
-        filter: filterValue,
-        animationOptions: {
-            duration: 750,
-            easing: 'linear',
-            queue: false,
-        }
-      });
-
-      // don't proceed if already selected
-
-      if ( $this.hasClass('selected') ) {
-        return false;
-      }
-
-      var filter_wrapper = $this.closest('.filter-wrapper');
-      filter_wrapper.find('.selected').removeClass('selected');
-      $this.addClass('selected');
-
-        return false;
-      });
-
-  }
-
-});
-
-
 $(document).ready(function() {
 
   /* Hide mobile menu after clicking on a link
@@ -181,31 +125,20 @@ function showDiv(TextID,ButtonID,BoxID,scrollBool) {
 }
 
 /* Align CV gray boxes */
-function CVAlign(boxes,texts,headers) {
+function CVAlign(boxes,texts) {
   var bottomPad = 10;
   var heights = texts.map(function(text){
     return $(text).height();
   });
-  var tops = headers.map(function(header){
+  var tops = texts.map(function(header){
     return $(header).offset().top;
   });
   var max;
   if (Math.max(...tops) == Math.min(...tops)) { // if the boxes are rendered on the same line
-    var headerHeights = headers.map(function(header){
-      return $(header).height();
-    });
     max = Math.max(...heights) + bottomPad;
-    var headerDiff = headerHeights[0] - headerHeights[1]; //left header minus right header difference
-    if (Math.max(heights[1], heights[2]) < (heights[0] + headerDiff)) { //if the CV box is the lowest, pad the right boxes
       $(boxes[0]).height(max);
-      $(boxes[1]).height(max+headerDiff);
-      $(boxes[2]).height(max+headerDiff);
-    }
-    else { //else, pad the CV box and make the right boxes the same size
-      $(boxes[0]).height(max-headerDiff);
       $(boxes[1]).height(max);
       $(boxes[2]).height(max);
-    }
   }
   else {
     max = Math.max(...heights.slice(1,)) + bottomPad;
@@ -213,6 +146,11 @@ function CVAlign(boxes,texts,headers) {
     $(boxes[1]).height(max);
     $(boxes[2]).height(max);
   }
+}
+
+function centerButtonWithinBox(box, button) {
+  var leftAlign = $(box).outerWidth() / 2 - $(button).outerWidth() / 2;
+  $(button).css("left", leftAlign);
 }
 
 /* Align professional box heights and button positions */
@@ -231,8 +169,7 @@ function professionalAlign(boxes,texts,buttons) {
   });
   var maxExpandedHeight = Math.max(...expandedHeight);
   for (var b = 0; b < boxes.length; b++) {
-    var leftAlign = $(boxes[b]).outerWidth() / 2 - $(buttons[b]).outerWidth() / 2;
-    $(buttons[b]).css("left", leftAlign);
+    centerButtonWithinBox(boxes[b], buttons[b]);
     if ($(boxes[b]).children('div.moreText').css("display") == "none") { // if it's not expanded
       $(buttons[b]).css("bottom", 2 * bottomPad + "px");
       $(boxes[b]).height(maxCollapsedHeight + bottomOffset);
@@ -276,7 +213,7 @@ function alignSnippets(abstracts, boxes){
 
 /* Function for realigning everything on window resize */
 function resizeAll() {
-  CVAlign(['#resumeBox','#recentlyBox','#soonBox'],['#resumeText','#recentlyText','#soonText'],['#CVHeader','#happeningsHeader']);
+  CVAlign(['#resumeBox','#recentlyBox','#soonBox'],['#resumeText','#recentlyText','#soonText']);
 }
 
 function resizePastAll() {
