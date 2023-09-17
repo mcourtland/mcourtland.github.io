@@ -351,20 +351,18 @@ a:focus {
 	--left-box-height: calc(var(--right-box-height) - 56px); */
 }
 
-#CVs .col-xs-4 .resumes,
-#CVs .happenings {
+#CVs .resumes,.happenings {
   width: 100%;
-  height: var(--left-box-height);
   overflow: hidden;
   background: rgb(240, 240, 240);
 }
 
-#CVs .col-xs-4 .resumes ul {
+#CVs .resumes ul {
   padding-top: 4px;
   padding-left: 0px;
 }
 
-#CVs .col-xs-4 .resumes ul li {
+#CVs .resumes ul li {
   color: #777;
   font-size: 18px;
   font-weight: 400;
@@ -374,13 +372,7 @@ a:focus {
   margin-right: auto;
 }
 
-#CVs .col-xs-4 .resumes p {
-  padding-top: 10px;
-  font-weight: bold;
-  color: #777;
-}
-
-#CVs .happenings p {
+#CVs p {
   padding-top: 10px;
   font-weight: bold;
   color: #777;
@@ -570,3 +562,9 @@ a:focus {
   }
 }
 
+/* TODO: test display on mobile devices with Chrome's emulator */
+/* TODO: think about making text smaller on mobile devices */
+/* TODO: think about making CVs section stack on smaller devices*/
+/* TODO: make the buttons in past projects unified with the rest of the buttons */
+/* TODO: think about previous projects size on shrink */
+/* TODO: unify rgb or hex color spec */
